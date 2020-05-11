@@ -1,0 +1,10 @@
+@mixin linkButton {
+  text-decoration: none;
+  border: 1px solid #3C3C3C;
+  padding: 1.5rem;
+  margin: 1rem;
+  &:visited {
+    text-decoration: none;
+    color: #3C3C3C;
+  }
+}

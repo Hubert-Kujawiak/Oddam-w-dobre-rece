@@ -1,0 +1,21 @@
+.threeColumns {
+  background-image: url("../../assets/3 Columns Background.png");
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  font-weight: lighter;
+  .column {
+    h1 {
+      font-size: 3.5rem;
+      margin: 3rem 0 2rem 0;
+    }
+    h2 {
+      margin-bottom: 1.5rem;
+    }
+    p{
+      font-size: 0.8rem;
+      margin-bottom: 3rem;
+      padding: 0 5rem;
+    }
+  }
+}

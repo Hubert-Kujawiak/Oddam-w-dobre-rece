@@ -1,0 +1,55 @@
+#contactForm {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  height: 70vh;
+  .leftSideImage {
+    width: 60%;
+    opacity: 20%;
+    background-image: url("../../assets/Background-Contact-Form.jpg");
+    background-size: cover;
+  }
+  .rightSideForm {
+    width: 35%;
+    text-align: center;
+    h1 {
+      font-size: 1.5rem;
+      margin: 6rem 0 1rem 0;
+    }
+    img {
+      width: 11rem;
+      margin-bottom: 2rem;
+    }
+  }
+  form {
+    text-align: left;
+    margin-left: 6rem;
+    label {
+      font-size: 0.8rem;
+      display: inline-grid;
+      margin: 0 1rem 1rem 0;
+    }
+    input {
+      border: none;
+      border-bottom: 1px solid #707070;
+      margin-top: 1rem;
+      outline: 0;
+    }
+    textarea {
+      border: none;
+      border-bottom: 1px solid #707070;
+      margin-top: 1rem;
+      outline: 0;
+      resize: none;
+      width: 23.5rem;
+      height: 6rem;
+    }
+    button {
+      position: relative;
+      padding: 0.5rem 2rem;
+      background-color: white;
+      border: 1px solid black;
+      left: 17.5rem;
+    }
+  }
+}
