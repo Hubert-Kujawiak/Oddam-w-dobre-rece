@@ -18,14 +18,19 @@ export default function ContactForm() {
         setMessage(event.target.value)
     }
 
+    console.log(name)
+    console.log(email)
+    console.log(message)
+
     const handleSubmit = (event) => {
         event.preventDefault()
+
         const form = {
             Name: name,
             Email: email,
             Message: message
         };
-
+        console.log(form)
         const API = "https://fer-api.coderslab.pl/v1/portfolio";
         fetch(`${API}/contact`, {
             method: "POST",
