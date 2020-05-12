@@ -12,12 +12,10 @@ export default function LogInPage() {
                 <h1>Zaloguj się</h1>
                 <img src={decoration} alt="decoration"/>
                 <form>
-                    <label>Email<br/>
+                    <label>Email</label><br/>
                         <input type="text"/><br/>
-                    </label>
-                    <label>Hasło<br/>
+                    <label>Hasło</label><br/>
                         <input type="password"/><br/>
-                    </label>
                     <Link to="/register">Załóż konto</Link>
                     <button type="submit">Zaloguj</button>
                 </form>

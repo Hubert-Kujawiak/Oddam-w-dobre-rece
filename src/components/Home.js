@@ -5,6 +5,7 @@ import GreetingSteps from "./GreetingSteps";
 import AboutUs from "./AboutUs";
 import WhoWeHelp from "./WhoWeHelp";
 import ContactForm from "./ContactForm";
+import Footer from "./Footer";
 
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
             <AboutUs/>
             <WhoWeHelp/>
             <ContactForm/>
+            <Footer/>
         </>
     )
 }
