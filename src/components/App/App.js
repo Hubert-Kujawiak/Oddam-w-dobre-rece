@@ -1,9 +1,10 @@
 import React from 'react';
-import './scss/main.scss';
+import '../../scss/main.scss';
 import {HashRouter as Router, Route, Switch} from 'react-router-dom';
-import Home from "./components/Home";
-import LogInPage from "./components/LogInPage";
-import RegisterPage from "./components/RegisterPage";
+import Home from "../Home";
+import LogInPage from "../LogInPage";
+import SignUpPage from "../SignUp/SignUpPage";
+import SignInPage from "../SignIn/SignInPage";
 
 
 function App() {
@@ -14,10 +15,11 @@ function App() {
             <Home/>
           </Route>
             <Route path="/login">
-                <LogInPage/>
+                <SignInPage/>
             </Route>
             <Route path="/register">
-                <RegisterPage/>
+                {/*<RegisterPage/>*/}
+                <SignUpPage/>
             </Route>
         </Switch>
       </Router>
