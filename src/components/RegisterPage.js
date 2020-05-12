@@ -12,12 +12,10 @@ export default function RegisterPage() {
                 <h1>Załóż konto</h1>
                 <img src={decoration} alt="decoration"/>
                 <form>
-                    <label>Email<br/>
+                    <label>Email</label><br/>
                         <input type="text"/><br/>
-                    </label>
-                    <label>Hasło<br/>
+                    <label>Hasło</label><br/>
                         <input type="password"/><br/>
-                    </label>
                     <label>Powtórz hasło<br/>
                         <input type="password"/><br/>
                     </label>
