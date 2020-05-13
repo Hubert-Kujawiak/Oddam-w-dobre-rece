@@ -37,6 +37,9 @@
       border: 1px solid #FAD648;
     }
   }
+  span {
+    margin-right: 4rem;
+  }
 }
 .navMenu {
   text-align: right;
@@ -80,4 +83,12 @@
     background-position: center;
   }
   }
+.logOutButton {
+  border: none;
+  background-color: white;
+  font-weight: lighter;
+  font-size: 0.7rem;
+  font-family: "Open Sans", sans-serif;
+  color: #737373;
+}
 

@@ -7,6 +7,12 @@
     background-color: $color-light-gray;
     padding: 2rem;
     text-align: left;
+    p {
+      margin-top: 4rem;
+      color: red;
+      text-align: center;
+      font-weight: lighter;
+    }
   }
   h1 {
     font-size: 1.8rem;
@@ -37,6 +43,7 @@
     padding: 0.6rem 2rem;
     cursor: pointer;
     font-size: 0.8rem;
+    outline: 0;
     &:hover {
       border: 1px solid black;
     }

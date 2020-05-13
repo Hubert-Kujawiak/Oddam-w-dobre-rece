@@ -32,6 +32,7 @@
     padding: 0.6rem 2rem;
     cursor: pointer;
     font-size: 0.8rem;
+    outline: 0;
     &:hover {
       border: 1px solid black;
     }
@@ -54,6 +55,11 @@
     margin: 0 auto;
     background-color: $color-light-gray;
     padding: 2rem;
+    p {
+      margin-top: 4rem;
+      color: red;
+      font-weight: lighter;
+    }
   }
 }
 
