@@ -22,13 +22,12 @@ export default function ContactForm() {
     console.log(email)
     console.log(message)
 
-    const handleSubmit = (event) => {
-        event.preventDefault()
+    const handleSubmit = () => {
 
         const form = {
-            Name: name,
-            Email: email,
-            Message: message
+            name: name,
+            email: email,
+            message: message
         };
         console.log(form)
         const API = "https://fer-api.coderslab.pl/v1/portfolio";

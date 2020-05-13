@@ -7,8 +7,8 @@ export default function Footer() {
     return(
         <footer>
             <span>Copyright by Coders Lab</span>
-            <a href="https://www.facebook.com/" target="_blank"><img src={facebook} alt="facebook"/></a>
-            <a href="https://www.instagram.com/?hl=pl" target="blank"><img src={instagram} alt="instagram"/></a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><img src={facebook} alt="facebook"/></a>
+            <a href="https://www.instagram.com/?hl=pl" target="blank" rel="noopener noreferrer"><img src={instagram} alt="instagram"/></a>
         </footer>
     )
 }

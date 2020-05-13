@@ -1,28 +1,3 @@
-// import React from "react";
-// import {Link} from "react-router-dom";
-//
-// export default function SignInPage() {
-//
-//     return(
-//         <>
-//             <div className="loginForm">
-//                 <h1>Zaloguj się</h1>
-//                 <form>
-//                     <label>Email<br/>
-//                         <input type="text"/><br/>
-//                     </label>
-//                     <label>Hasło<br/>
-//                         <input type="password"/><br/>
-//                     </label>
-//                     <Link to="/signup">Załóż konto</Link>
-//                     <button type="submit">Zaloguj</button>
-//                 </form>
-//             </div>
-//         </>
-//     )
-// }
-
-
 import React, { Component } from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import { compose } from 'recompose';
@@ -58,7 +33,7 @@ class SignInFormBase extends Component {
             .doSignInWithEmailAndPassword(email, password)
             .then(() => {
                 this.setState({ ...INITIAL_STATE });
-                this.props.history.push(ROUTES.LOGINPAGE);
+                this.props.history.push(ROUTES.HOME);
             })
             .catch(error => {
                 this.setState({ error });

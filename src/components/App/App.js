@@ -4,8 +4,8 @@ import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import Home from "../Home";
 import SignUpPage from "../SignUp/SignUpPage";
 import SignInPage from "../SignIn/SignInPage";
-import HomeAfterLogin from "../HomeAfterLogin";
 import LogOut from "../LogOut";
+import GiveBack from "../GiveBack";
 
 
 function App() {
@@ -21,11 +21,11 @@ function App() {
             <Route path="/register">
                 <SignUpPage/>
             </Route>
-            <Route path="/loginpage">
-                <HomeAfterLogin/>
-            </Route>
             <Route path="/logout">
                 <LogOut/>
+            </Route>
+            <Route path="/giveback">
+                <GiveBack/>
             </Route>
         </Switch>
       </Router>
