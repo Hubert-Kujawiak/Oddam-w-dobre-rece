@@ -7,7 +7,7 @@ export default function Footer() {
     return(
         <footer>
             <span>Copyright by Coders Lab</span>
-            <img src={facebook} alt="facebook"/>
+            <a href="https://www.facebook.com/" target="_blank"><img src={facebook} alt="facebook"/></a>
             <img src={instagram} alt="instagram"/>
         </footer>
     )

@@ -71,32 +71,31 @@ class SignUpFormBase extends Component {
                 <h1>Załóż konto</h1>
                 <img src={decoration} alt="decoration"/>
             <form onSubmit={this.onSubmit}>
+                <label>Email</label><br/>
                 <input
                     name="email"
                     value={email}
                     onChange={this.onChange}
                     type="text"
-                    placeholder="Email Address"
-                />
+                /><br/>
+                <label>Hasło</label><br/>
                 <input
                     name="passwordOne"
                     value={passwordOne}
                     onChange={this.onChange}
                     type="password"
-                    placeholder="Password"
-                />
+                /><br/>
+                <label>Powtórz hasło</label><br/>
                 <input
                     name="passwordTwo"
                     value={passwordTwo}
                     onChange={this.onChange}
                     type="password"
-                    placeholder="Confirm Password"
                 />
-                <Link to="/login">Zaloguj</Link>
+                <Link to="/login">Zaloguj się</Link>
                 <button disabled={isInvalid} type="submit">
                     Załóż konto
                 </button>
-
                 {error && <p>{error.message}</p>}
             </form>
             </div>

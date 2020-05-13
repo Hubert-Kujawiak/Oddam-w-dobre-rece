@@ -27,15 +27,14 @@ import React, { Component } from 'react';
 import {Link, withRouter} from 'react-router-dom';
 import { compose } from 'recompose';
 
-// import { SignUpLink } from '../SignUp/SignUpPage';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 import decoration from "../../assets/Decoration.svg";
+import ConstantHeader from "../ConstantHeader";
 
 const SignInPage = () => (
     <div>
         <SignInForm />
-        {/*<SignUpLink />*/}
     </div>
 );
 
@@ -59,7 +58,7 @@ class SignInFormBase extends Component {
             .doSignInWithEmailAndPassword(email, password)
             .then(() => {
                 this.setState({ ...INITIAL_STATE });
-                this.props.history.push(ROUTES.HOME);
+                this.props.history.push(ROUTES.LOGINPAGE);
             })
             .catch(error => {
                 this.setState({ error });
@@ -78,32 +77,34 @@ class SignInFormBase extends Component {
         const isInvalid = password === '' || email === '';
 
         return (
+            <>
+            <ConstantHeader/>
             <div className="loginForm">
                 <h1>Zaloguj się</h1>
                 <img src={decoration} alt="decoration"/>
             <form onSubmit={this.onSubmit}>
+                <label>Email</label><br/>
                 <input
                     name="email"
                     value={email}
                     onChange={this.onChange}
                     type="text"
-                    placeholder="Email Address"
-                />
+                /><br/>
+                <label>Hasło</label><br/>
                 <input
                     name="password"
                     value={password}
                     onChange={this.onChange}
                     type="password"
-                    placeholder="Password"
-                />
+                /><br/>
                 <Link to="/register">Załóż konto</Link>
                 <button disabled={isInvalid} type="submit">
-                    Zaloguj
+                    Zaloguj się
                 </button>
-
                 {error && <p>{error.message}</p>}
             </form>
             </div>
+            </>
         );
     }
 }

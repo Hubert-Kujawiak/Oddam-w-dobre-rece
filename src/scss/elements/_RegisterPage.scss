@@ -1,8 +1,16 @@
 .registerForm {
   text-align: center;
+  form {
+    width: 18rem;
+    height: 18rem;
+    margin: 0 auto;
+    background-color: $color-light-gray;
+    padding: 2rem;
+    text-align: left;
+  }
   h1 {
     font-size: 1.8rem;
-    margin: 12rem 0 2rem 0;
+    margin: 10rem 0 2rem 0;
   }
   img {
     margin-bottom: 3rem;
@@ -10,7 +18,7 @@
   a {
     position: relative;
     right: 5rem;
-    top: 2rem;
+    top: 4rem;
     background-color: white;
     padding: 0.5rem 1rem;
     text-decoration: none;
@@ -22,8 +30,8 @@
   }
   button {
     position: relative;
-    left: 5rem;
-    top: 2rem;
+    left: 12rem;
+    top: 2.5rem;
     background-color: white;
     border: none;
     padding: 0.6rem 2rem;
@@ -40,15 +48,9 @@
     margin-bottom: 2rem;
     margin-top: 1rem;
     outline: 0;
+    width: 100%;
   }
   label {
-    font-size: 0.8rem;
-  }
-  form {
-    width: 18rem;
-    height: 18rem;
-    margin: 0 auto;
-    background-color: $color-light-gray;
-    padding: 2rem;
+    font-size: 0.7rem;
   }
 }
