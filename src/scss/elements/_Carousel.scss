@@ -1,62 +1,123 @@
-//<div.form-carousel__container>
-//    <div.form-carousel>
-//        <div.form-carousel__page>
-//            Content
-//        </div.form-carousel__page>
-//        ...
-//        <div.form-carousel__page>
-//            Content
-//        </div.form-carousel__page>
-//        </div.form-carousel>
-//    <div.form-carousel__nav-container>
-//        <button(.hide)>Prev</button>
-//        <button>Next<button/>
-//    </div.form-carousel__nav-container>
-//</div.form-carousel__container>
-//
-
-
 .form-carousel__container {
-  height: 65vh;
   border: none;
+  button {
+    padding: 1rem 2rem;
+    text-decoration: none;
+    color: black;
+    font-size: 0.8rem;
+    border: 1px solid black;
+    font-weight: lighter;
+    font-family: "Open Sans", sans-serif;
+    cursor: pointer;
+    margin-top: 8rem;
+    background-color: #80808000;
+    outline: 0;
+    @media (max-width: 1400px) {
+      margin: 0 0 1rem 0;
+    }
+  }
 }
 
-.form-carousel {
-  transition: height 0.6s;
+  .allStep {
+    background-image: url("../../assets/Background-Form.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 5rem;
+    height: 85vh;
+    .importantInformation {
+      background-color: #FAD648;
+      h1 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding: 2rem 0 0 5rem;
+      }
+      p {
+        padding: 1rem 0 2rem 5rem;
+      }
+    }
+
+    .step {
+      padding: 1rem 0 2rem 5rem;
+      p{
+        margin: 1rem 0 2rem 0;
+        font-weight: lighter;
+      }
+      h1 {
+        font-size: 1.4rem;
+        font-weight: bold;
+        margin-bottom: 3rem;
+      }
+      label {
+        margin: 0 0 1rem 1.5rem;
+        font-weight: lighter;
+      }
+      input {
+        margin-bottom: 1.5rem;
+      }
+    }
+    .secondStep {
+      label {
+        margin: 0 1rem 0 0;
+      }
+      select {
+        width: 180px;
+        text-align: center;
+        border: 1px solid black;
+        padding: 0.5rem 1rem;
+        outline: 0;
+      }
+    }
+    .thirdStep {
+      h1 {
+        margin-bottom: 0;
+      }
+
+    }
+  }
+
+
+
+
+.default-style-module_navcontainer__1c3i1 button {
+  margin-left: 5rem;
 }
 
-.form-carousel__page {
-  /*
-  padding: 10px;
-  text-align: center;
-  */
-}
 
-.form-carousel__nav-container {
-  /*
-  padding: 10px;
-  padding-top: 0;
-  text-align: center;
-  */
-}
 
-.form-carousel__nav-container button {
-  /*
-  padding: 2px 5px;
-  margin: 0 5px;
-  width: 100px;
-} */
-}
+//.style-module_container__1FUJO {
+//
+//}
+//.default-style-module_form__page__15AqX {
+//}
 
+//.form-carousel {
+//  transition: height 1s;
+//}
+//
+//.form-carousel__page {
+//  /*
+//  padding: 10px;
+//  text-align: center;
+//  */
+//}
+//
+//.form-carousel__nav-container {
+//  /*
+//  padding: 10px;
+//  padding-top: 0;
+//  text-align: center;
+//  */
+//}
+//
+//.form-carousel__nav-container button {
+//  /*
+//  padding: 2px 5px;
+//  margin: 0 5px;
+//  width: 100px;
+//} */
+//}
+//
 .form-carousel__nav-container button.hide {
+  display: none;
 }
 
-.giveBackForm {
-  background-image: url("../../assets/Background-Form.jpg");
-  background-size: cover;
-  height: 65vh;
-}
-.style-module_container__1FUJO {
-  width: 100%;
-  border: none;
-}
