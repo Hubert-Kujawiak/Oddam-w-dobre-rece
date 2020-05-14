@@ -2,8 +2,8 @@ import React from 'react'
 import ConstantHeaderAfterLogin from "./ConstantHeaderAfterLogin";
 import decoration from "../assets/Decoration.svg";
 import ContactForm from "./ContactForm";
-import GiveBackForm from "./GiveBackForm";
 import Carousel from "./Carousel";
+import Footer from "./Footer";
 
 export default function GiveBack() {
 
@@ -40,12 +40,9 @@ export default function GiveBack() {
                 </div>
             </div>
         </div>
-        <div className="importantInformation">
-            <h1>Ważne!</h1>
-            <p>Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu będziemy wiedzieć komu najlepiej je przekazać.</p>
-        </div>
         <Carousel/>
         <ContactForm/>
+        <Footer/>
         </>
     )
 

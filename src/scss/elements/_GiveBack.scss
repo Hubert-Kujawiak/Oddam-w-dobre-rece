@@ -24,7 +24,7 @@
 .headerButtonForm {
   font-family: $font-base;
   text-align: center;
-  margin: 13rem 12rem 0 0;
+  margin: 6rem 5rem 0 0;
   h1 {
     font-size: 2rem;
     color: #3C3C3C;
@@ -50,7 +50,6 @@
 }
 .rombFlex {
   display: flex;
-  width: 30rem;
   margin-top: 5rem;
   margin-left: 6rem;
   .romb {
@@ -68,17 +67,6 @@
       padding-right: 1.0rem;
       padding-top: 1.5rem;
     }
-  }
-}
-.importantInformation {
-  background-color: #FAD648;
-  h1 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding: 2rem 0 0 5rem;
-  }
-  p {
-    padding: 1rem 0 2rem 5rem;
   }
 }
 
