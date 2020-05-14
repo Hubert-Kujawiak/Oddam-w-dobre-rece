@@ -16,7 +16,7 @@ function ConstantHeaderAfterLogin({ firebase }) {
                 <Link to="/logout"><SignOutButton/></Link>
             </div>
             <div className="navMenu">
-                <Link to="/loginpage">Start</Link>
+                <Link to="/">Start</Link>
                 <ReactScroll/>
             </div>
         </div>

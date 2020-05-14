@@ -18,10 +18,6 @@ export default function ContactForm() {
         setMessage(event.target.value)
     }
 
-    console.log(name)
-    console.log(email)
-    console.log(message)
-
     const handleSubmit = () => {
 
         const form = {
