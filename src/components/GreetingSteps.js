@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import {withFirebase} from "./Firebase";
 
 import decoration from "../assets/Decoration.svg"
 import iconOne from "../assets/Icon-1.svg"
@@ -8,7 +9,9 @@ import iconThree from "../assets/Icon-3.svg"
 import iconFour from "../assets/Icon-4.svg"
 
 
-export default function GreetingSteps() {
+function GreetingSteps({firebase}) {
+
+    const isUser = firebase.getCurrentUser()
 
     return(
         <>
@@ -44,9 +47,11 @@ export default function GreetingSteps() {
                 </div>
             </div>
             <div className="greetingButton">
-                <Link to="/login">ODDAJ RZECZY</Link>
+                <Link to={isUser ? "/giveback" : "/login"}>ODDAJ RZECZY</Link>
             </div>
             </section>
         </>
     )
 }
+
+export default withFirebase(GreetingSteps)

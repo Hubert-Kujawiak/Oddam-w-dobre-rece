@@ -19,7 +19,7 @@ function HomeHeader({ firebase }) {
                 <div className="headerButton">
                     <h1>Zacznij pomagać!<br/>Oddaj niechciane rzeczy w zaufane ręce</h1>
                     <img src={decoration} alt="obrazek"/><br/>
-                    <Link to="/login">ODDAJ RZECZY</Link>
+                    <Link to={isUser ? "/giveback" : "/login"}>ODDAJ RZECZY</Link>
                     <Link to="/#">ZORGANIZUJ ZBIÓRKĘ</Link>
                 </div>
             </div>
