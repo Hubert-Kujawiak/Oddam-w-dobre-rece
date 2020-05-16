@@ -4,9 +4,12 @@ import decoration from "../assets/Decoration.svg";
 import ContactForm from "./ContactForm";
 import Carousel from "./Carousel";
 import Footer from "./Footer";
+import {withFirebase} from './Firebase'
 
-export default function GiveBack() {
+function GiveBack( {firebase} ) {
 
+    const userAuth = firebase.getCurrentUser()
+    console.log(userAuth)
 
     return (
         <>
@@ -40,10 +43,11 @@ export default function GiveBack() {
                 </div>
             </div>
         </div>
-        <Carousel/>
+        <Carousel user={userAuth}/>
         <ContactForm/>
         <Footer/>
         </>
     )
-
 }
+
+export default withFirebase(GiveBack)

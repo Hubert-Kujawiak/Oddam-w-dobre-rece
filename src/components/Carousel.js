@@ -1,26 +1,58 @@
-import React, {useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import Form, { Page } from 'react-form-carousel'
 import icon1 from '../assets/Icon-1.svg'
 import icon2 from '../assets/Icon-4.svg'
+import firebase from "firebase";
 
-export default function Carousel() {
+
+export default function Carousel(props) {
+
+    const userAuth = props.user
+    console.log(userAuth)
 
     const [bag, setBag] = useState('1')
     const [city, setCity] = useState('Poznań')
     const [typeGive, setTypeGive] = useState('')
     const [whoGive, setWhoGive] = useState([])
+
+    const [addressInfo, setAddressInfo] = useState({street:"", postCode:"", city:"", phone:""})
+    const [dateInfo, setDateInfo] = useState({date:"", hour:"", moreInfo:""})
+
     const [color, setColor] = useState('')
+
+    const [readData, setReadData] = useState([])
 
     const style = {
         backgroundColor: color
     }
 
-    const [addressInfo, setAddressInfo] = useState({street:"", postCode:"", city:"", phone:""})
-    const [dateInfo, setDateInfo] = useState({date:"", hour:"", moreInfo:""})
+    const db = firebase.firestore()
 
-    const handleSubmit = () => {
-
+    const handleSubmit = (props) => {
+        db.collection(`${props}`).add({
+            user: userAuth,
+            first: "Hubert",
+            last: "Kujawiak",
+            born: 1993
+        })
+            .then(function (docRef) {
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch(function (error) {
+                console.error("Error adding document: ", error);
+            });
     }
+    useEffect( ( ) => {
+        db.collection(`${userAuth}`).get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                console.log(`${doc.id} => ${doc.data()}`);
+                setReadData( prev => ([...prev, doc.data()]))
+            });
+        });
+    },[])
+
+    console.log(readData)
+
 
     const handleBag = (event) => {
         setBag(event.target.value)
@@ -46,7 +78,7 @@ export default function Carousel() {
 
     return (
             <main className="allStep">
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={ () => handleSubmit(userAuth)}>
                 <Page>
                     <>
                         <div className="importantInformation">

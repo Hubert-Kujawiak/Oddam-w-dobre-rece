@@ -6,6 +6,8 @@ import SignOutButton from "./SignOut";
 
 
 function ConstantHeaderAfterLogin({ firebase }) {
+
+
     // const user = firebase?.auth()?.currentUser?.email
     return (
         <div className="constantHeader">
