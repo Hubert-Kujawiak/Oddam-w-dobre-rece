@@ -6,6 +6,7 @@ import SignUpPage from "../SignUp/SignUpPage";
 import SignInPage from "../SignIn/SignInPage";
 import LogOut from "../LogOut";
 import GiveBack from "../GiveBack";
+import LastPageForm from "../LastPageForm";
 
 
 function App() {
@@ -26,6 +27,10 @@ function App() {
             </Route>
             <Route path="/giveback">
                 <GiveBack/>
+            </Route>
+            // do usunięcia
+            <Route path="/thanks">
+                <LastPageForm/>
             </Route>
         </Switch>
       </Router>

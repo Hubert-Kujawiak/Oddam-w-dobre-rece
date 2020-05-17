@@ -4,7 +4,6 @@ import icon1 from '../assets/Icon-1.svg'
 import icon2 from '../assets/Icon-4.svg'
 import firebase from "firebase";
 
-
 export default function Carousel(props) {
 
     const userAuth = props.user
@@ -31,9 +30,11 @@ export default function Carousel(props) {
     const handleSubmit = (props) => {
         db.collection(`${props}`).add({
             user: userAuth,
-            first: "Hubert",
-            last: "Kujawiak",
-            born: 1993
+            IlośćWorków: bag,
+            CoChceszOddać: typeGive,
+            KomuChceszPomóc: whoGive,
+            Adres: addressInfo,
+            Data: dateInfo
         })
             .then(function (docRef) {
                 console.log("Document written with ID: ", docRef.id);
@@ -64,8 +65,12 @@ export default function Carousel(props) {
         setTypeGive(event.target.value)
     }
     const handleWhoGive = (event) => {
-        setWhoGive([whoGive, event.target.value])
-        setColor('yellow')
+        if (whoGive.includes(event.target.value)) {
+            setWhoGive( whoGive.filter(el => el !== event.target.value))
+            return
+        }
+        setWhoGive( [...whoGive, event.target.value])
+        setColor("orange")
     }
 
 
@@ -139,19 +144,19 @@ export default function Carousel(props) {
                                 <option>Katowice</option>
                             </select>
                             <p>Komu chcesz pomóc?</p><br/>
-                            <label style={style}>dzieciom
+                            <label style={whoGive.includes("dzieciom") ? style: {}}>dzieciom
                                 <input type="checkbox" value="dzieciom" onClick={handleWhoGive} />
                             </label>
-                            <label style={style}>samotnym matkom
+                            <label style={whoGive.includes("samotnym matkom") ? style: {}}>samotnym matkom
                                 <input type="checkbox" value="samotnym matkom" onClick={handleWhoGive}/>
                             </label>
-                            <label style={style}>bezdomnym
+                            <label style={whoGive.includes("bezdomnym") ? style: {}}>bezdomnym
                                 <input type="checkbox" value="bezdomnym" onClick={handleWhoGive}/>
                             </label><br/>
-                            <label style={style}>niepełnosprawnym
+                            <label style={whoGive.includes("niepełnosprawnym") ? style: {}}>niepełnosprawnym
                                 <input type="checkbox" value="niepełnosprawnym" onClick={handleWhoGive}/>
                             </label>
-                            <label style={style}>osobom starszym
+                            <label style={whoGive.includes("osobom starszym") ? style: {}}>osobom starszym
                                 <input type="checkbox" value="osobom starszym" onClick={handleWhoGive}/>
                             </label>
                             <p>Wpisz nazwę konkretnej organizacji (opcjonalnie)</p>

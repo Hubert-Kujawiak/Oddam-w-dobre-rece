@@ -1,0 +1,19 @@
+.lastPageForm {
+  background-image: url("../../assets/Background-Form.jpg");
+  background-size: cover;
+  height: 100vh;
+  .headerAndImage {
+    width: 60%;
+    text-align: center;
+    h1 {
+      font-size: 1.5rem;
+      font-weight: lighter;
+      padding: 15rem 0 0 4rem;
+      line-height: 2rem;
+    }
+    img {
+      width: 12rem;
+      margin: 1rem 0 0 4rem;
+    }
+  }
+}
