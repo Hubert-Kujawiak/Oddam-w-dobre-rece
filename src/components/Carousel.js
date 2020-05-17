@@ -1,26 +1,59 @@
-import React, {useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import Form, { Page } from 'react-form-carousel'
 import icon1 from '../assets/Icon-1.svg'
 import icon2 from '../assets/Icon-4.svg'
+import firebase from "firebase";
 
-export default function Carousel() {
+export default function Carousel(props) {
+
+    const userAuth = props.user
+    console.log(userAuth)
 
     const [bag, setBag] = useState('1')
     const [city, setCity] = useState('Poznań')
     const [typeGive, setTypeGive] = useState('')
     const [whoGive, setWhoGive] = useState([])
+
+    const [addressInfo, setAddressInfo] = useState({street:"", postCode:"", city:"", phone:""})
+    const [dateInfo, setDateInfo] = useState({date:"", hour:"", moreInfo:""})
+
     const [color, setColor] = useState('')
+
+    const [readData, setReadData] = useState([])
 
     const style = {
         backgroundColor: color
     }
 
-    const [addressInfo, setAddressInfo] = useState({street:"", postCode:"", city:"", phone:""})
-    const [dateInfo, setDateInfo] = useState({date:"", hour:"", moreInfo:""})
+    const db = firebase.firestore()
 
-    const handleSubmit = () => {
-
+    const handleSubmit = (props) => {
+        db.collection(`${props}`).add({
+            user: userAuth,
+            IlośćWorków: bag,
+            CoChceszOddać: typeGive,
+            KomuChceszPomóc: whoGive,
+            Adres: addressInfo,
+            Data: dateInfo
+        })
+            .then(function (docRef) {
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch(function (error) {
+                console.error("Error adding document: ", error);
+            });
     }
+    useEffect( ( ) => {
+        db.collection(`${userAuth}`).get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                console.log(`${doc.id} => ${doc.data()}`);
+                setReadData( prev => ([...prev, doc.data()]))
+            });
+        });
+    },[])
+
+    console.log(readData)
+
 
     const handleBag = (event) => {
         setBag(event.target.value)
@@ -32,8 +65,12 @@ export default function Carousel() {
         setTypeGive(event.target.value)
     }
     const handleWhoGive = (event) => {
-        setWhoGive([whoGive, event.target.value])
-        setColor('yellow')
+        if (whoGive.includes(event.target.value)) {
+            setWhoGive( whoGive.filter(el => el !== event.target.value))
+            return
+        }
+        setWhoGive( [...whoGive, event.target.value])
+        setColor("orange")
     }
 
 
@@ -46,7 +83,7 @@ export default function Carousel() {
 
     return (
             <main className="allStep">
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={ () => handleSubmit(userAuth)}>
                 <Page>
                     <>
                         <div className="importantInformation">
@@ -107,19 +144,19 @@ export default function Carousel() {
                                 <option>Katowice</option>
                             </select>
                             <p>Komu chcesz pomóc?</p><br/>
-                            <label style={style}>dzieciom
+                            <label style={whoGive.includes("dzieciom") ? style: {}}>dzieciom
                                 <input type="checkbox" value="dzieciom" onClick={handleWhoGive} />
                             </label>
-                            <label style={style}>samotnym matkom
+                            <label style={whoGive.includes("samotnym matkom") ? style: {}}>samotnym matkom
                                 <input type="checkbox" value="samotnym matkom" onClick={handleWhoGive}/>
                             </label>
-                            <label style={style}>bezdomnym
+                            <label style={whoGive.includes("bezdomnym") ? style: {}}>bezdomnym
                                 <input type="checkbox" value="bezdomnym" onClick={handleWhoGive}/>
                             </label><br/>
-                            <label style={style}>niepełnosprawnym
+                            <label style={whoGive.includes("niepełnosprawnym") ? style: {}}>niepełnosprawnym
                                 <input type="checkbox" value="niepełnosprawnym" onClick={handleWhoGive}/>
                             </label>
-                            <label style={style}>osobom starszym
+                            <label style={whoGive.includes("osobom starszym") ? style: {}}>osobom starszym
                                 <input type="checkbox" value="osobom starszym" onClick={handleWhoGive}/>
                             </label>
                             <p>Wpisz nazwę konkretnej organizacji (opcjonalnie)</p>
