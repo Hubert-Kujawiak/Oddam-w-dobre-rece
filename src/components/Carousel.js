@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react'
-import Form, { Page } from 'react-form-carousel'
+import Form, { Page } from '../components/react-carousel/testForm'
 import icon1 from '../assets/Icon-1.svg'
 import icon2 from '../assets/Icon-4.svg'
 import firebase from "firebase";
+import * as ROUTES from "../constants/routes";
+import { useHistory } from 'react-router-dom'
 
 export default function Carousel(props) {
 
     const userAuth = props.user
-    console.log(userAuth)
 
     const [bag, setBag] = useState('1')
     const [city, setCity] = useState('Poznań')
@@ -26,11 +27,13 @@ export default function Carousel(props) {
     }
 
     const db = firebase.firestore()
+    const history = useHistory();
 
     const handleSubmit = (props) => {
         db.collection(`${props}`).add({
             user: userAuth,
             IlośćWorków: bag,
+            Miasto: city,
             CoChceszOddać: typeGive,
             KomuChceszPomóc: whoGive,
             Adres: addressInfo,
@@ -38,6 +41,7 @@ export default function Carousel(props) {
         })
             .then(function (docRef) {
                 console.log("Document written with ID: ", docRef.id);
+                history.push(ROUTES.LASTPAGE)
             })
             .catch(function (error) {
                 console.error("Error adding document: ", error);
@@ -61,6 +65,7 @@ export default function Carousel(props) {
     const handleCity = (event) => {
         setCity(event.target.value)
     }
+    console.log(city)
     const handleTypeGive = (event) => {
         setTypeGive(event.target.value)
     }
